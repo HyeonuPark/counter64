@@ -1,8 +1,7 @@
 Counter64
 =====
 
-[![Build Status](https://travis-ci.org/HyeonuPark/Rubix.svg?branch=master)](https://travis-ci.org/HyeonuPark/ccounter64)
-[![codecov](https://codecov.io/gh/HyeonuPark/Rubix/branch/master/graph/badge.svg)](https://codecov.io/gh/HyeonuPark/counter64)
+[![Build Status](https://travis-ci.org/HyeonuPark/counter64.svg?branch=master)](https://travis-ci.org/HyeonuPark/ccounter64)
 
 64bit increase-only atomic counter for everywhere!
 
