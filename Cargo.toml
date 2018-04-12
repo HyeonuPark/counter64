@@ -1,0 +1,15 @@
+[package]
+name = "counter64"
+version = "0.1.0"
+authors = ["Hyeonu Park <nemo1275@gmail.com>"]
+
+description = "64bit increase-only atomic counter for everywhere"
+homepage = "https://github.com/HyeonuPark/counter64"
+documentation = "https://docs.rs/counter64"
+repository = "https://github.com/HyeonuPark/counter64.git"
+keywords = ["atomic", "counter"]
+categories = ["concurrency"]
+readme = "README.md"
+license = "MIT/Apache-2.0"
+
+[dependencies]
