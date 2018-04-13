@@ -17,5 +17,4 @@ rust:
 script:
   - cargo build --all
   - cargo test --all
-
-notification:
+  - cargo test --all --release
