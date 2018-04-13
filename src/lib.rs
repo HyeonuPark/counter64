@@ -88,11 +88,13 @@ mod counter {
 
         /// Increase counter by 1, and return previous value
         pub fn incr(&self) -> u64 {
+            let prev = self.get();
+
             let _ =
                 self.n1.fetch_add(1, O::Release) == usize::MAX &&
                 self.n2.fetch_add(1, O::Release) == usize::MAX;
 
-            self.get()
+            prev
         }
     }
 }
@@ -157,13 +159,15 @@ mod counter {
 
         /// Increase counter by 1, and return previous value
         pub fn incr(&self) -> u64 {
+            let prev = self.get();
+
             let _ =
                 self.n1.fetch_add(1, O::Release) == usize::MAX &&
                 self.n2.fetch_add(1, O::Release) == usize::MAX &&
                 self.n3.fetch_add(1, O::Release) == usize::MAX &&
                 self.n4.fetch_add(1, O::Release) == usize::MAX;
 
-            self.get()
+            prev
         }
     }
 }
@@ -198,5 +202,17 @@ mod tests {
 
         assert_eq!(counter.get(), u32::MAX as u64 - 80000 + 640000);
 
+    }
+
+    #[test]
+    fn test_incr_returns_prev() {
+        let mut prev = 0;
+        let counter = Counter::new();
+
+        for _ in 0..80000 {
+            let curr = counter.incr();
+            assert_eq!(curr, prev);
+            prev += 1;
+        }
     }
 }
